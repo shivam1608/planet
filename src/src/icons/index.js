@@ -1,0 +1,10 @@
+export {default as PlayIcon} from "./Play";
+export {default as PauseIcon} from "./Pause";
+export {default as NextIcon} from "./Next";
+export {default as SoundIcon} from "./Sound";
+export {default as MutedIcon} from "./Muted";
+export {default as SpeedIcon} from "./Speed";
+export {default as GearIcon} from "./Gear";
+export {default as MiniPlayerIcon} from "./MiniPlayer";
+export {default as ExpandIcon} from "./Expand";
+export {default as DeExpandIcon} from "./DeExpand";
