@@ -5,7 +5,7 @@ import SpeedController from './SpeedController';
 import VideoController from './VideoController';
 import KEY from '../../utils/KeyCodes';
 
-const Video = ({ src }) => {
+const Video = ({ src , className }) => {
 
     const [visible, setVisible] = useState(true);
     const [volume, setVolume] = useState(60);
@@ -46,9 +46,13 @@ const Video = ({ src }) => {
         setShowSettings(false);
         setShowSpeed(false);
         setVolumeRange(false);
+        canvas.current.focus();
     }
 
     const showBar = () => {
+
+        setIsFullscreen(document.fullscreenElement || document.webkitFullscreenElement ||document.mozFullScreenElement);
+
         if (closeTimeout.current) {
             clearTimeout(closeTimeout.current);
         }
@@ -170,13 +174,14 @@ const Video = ({ src }) => {
     }
 
     useEffect(() => {
+        canvas.current.focus();
         closeTimeout.current = setTimeout(() => { hideBar() }, 5000);
     }, []);
 
 
     return (
         <>
-            <div className='aspect-auto w-5/12 md:w-6/12 lg:w-7/12 h-auto' >
+            <div className={`aspect-auto ${className}`} >
                 <div onKeyDownCapture={keyboard} className="relative focus-visible:outline-none" ref={canvas} tabIndex="0">
                     {false && <div className='cursor-none'></div>}
                     {showSettings && <Settings />}
