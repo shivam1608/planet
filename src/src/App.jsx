@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App bg-gray-900 h-screen">
        <div className="flex justify-center items-center h-screen">
-        <Video src={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}></Video>
+        <Video src={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"}></Video>
        </div>
     </div>
   )
