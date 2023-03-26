@@ -149,6 +149,35 @@ const Video = ({src}) => {
         setBuffering(false);
     }
 
+    const keyboard = (e) => {
+        switch(e.keyCode){
+            case 70:{
+                fullscreen();
+                break;
+            }
+            case 32:{
+                playHandler();
+                showBar();
+                break;
+            }
+            case 39:{
+                video.current.currentTime+=5;
+                showBar();
+                break;
+            }
+            case 37:{
+                video.current.currentTime-=5;
+                showBar();
+                break;
+            }
+            case 77:{
+                muteHandler();
+                showBar();
+                break;
+            }
+        }
+    }
+
     useEffect(() => {
         closeTimeout.current = setTimeout(()=>{hideBar()} , 5000);
     }, []);
@@ -157,11 +186,11 @@ const Video = ({src}) => {
   return (
     <>
     <div className='aspect-auto w-5/12 md:w-6/12 lg:w-7/12 h-auto' >
-        <div className="relative" ref={canvas}>
+        <div onKeyDownCapture={keyboard} className="relative focus-visible:outline-none" ref={canvas} tabIndex="0">
             {false && <div className='cursor-none'></div>}
             {
                 showSettings && <div className="z-10 absolute bottom-14 right-3 m-1 bg-gray-900 rounded-md bg-opacity-60 backdrop-blur-sm py-2">
-                    <div class="flex flex-col items-center justify-center text-white fill-white">
+                    <div className="flex flex-col items-center justify-center text-white fill-white">
                         <button className="py-2 px-4 w-full flex items-center"><InfoIcon /><span className="px-2">Info</span> </button>
                         <button className="py-2 px-4 w-full flex items-center"><CaptionIcon /><span className="px-2">Captions</span></button>
                         <button className="py-2 px-4 w-full flex items-center"><QualityIcon /><span className="px-2">Quality</span></button>
@@ -170,7 +199,7 @@ const Video = ({src}) => {
             }
             {
                 showSpeed && <div className="z-10 absolute bottom-14 right-3 m-1 bg-gray-900 rounded-md bg-opacity-60 backdrop-blur-sm py-2">
-                    <div class="flex flex-col items-center justify-center text-white fill-white px-3">
+                    <div className="flex flex-col items-center justify-center text-white fill-white px-3">
                         <span className='w-full text-right text-xs cursor-pointer'>custom?</span>
                     <label htmlFor="speed">{speed}x</label>
                     <input onInputCapture={changeSpeed} onChange={changeSpeed} value={speed} className="h-1.5" step="0.25"  min="0.25" max="5" type="range" name="speed" id="speed" />
@@ -179,12 +208,12 @@ const Video = ({src}) => {
             }
             {
                 buffering &&  <div className="absolute bottom-1/2 right-1/2">
-                <div class="flex items-center justify-center">
+                <div className="flex items-center justify-center">
                     <div
-                        class="text-blue-500 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        className="text-blue-500 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                         role="loading">
                         <span
-                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
                         >Loading...</span>
                     </div>
                 </div>
