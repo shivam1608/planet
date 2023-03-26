@@ -36,7 +36,7 @@ const VideoController = ({
   return (
     <div className='z-10 absolute bottom-0 w-full h-fit bg-opacity-30 bg-gradient-to-t from-gray-800 to-transparent'>
       <div className="h-fit">
-        <input onInputCapture={seek} onChange={seek} value={currentTime} className='h-[4px] w-full p-0 rounded-none focus-visible:outline-none' type="range" name="position" id="position" min="0" max={duration} />
+        <input onInputCapture={seek} onChange={seek} value={currentTime} className='h-[4px] w-full p-0 rounded-none focus-visible:outline-none accent-primary' type="range" name="position" id="position" min="0" max={duration} />
       </div>
       <div className='flex fill-white items-center'>
         <div className="basis-8/12 items-center flex">
@@ -44,7 +44,7 @@ const VideoController = ({
           <button className='p-1'><NextIcon /></button>
           <span className='p-1 text-white text-xs'>{new Time(currentTime, duration).getTime()}</span>
           <button onMouseLeave={hideVolumeRange} onMouseEnter={showVolumeRange} onClick={muteHandler} className='p-1'>{isMuted ? <MutedIcon /> : (volume > 40 ? <SoundIcon /> : <Sound2Icon />)}</button>
-          {volumeRange && <input onMouseLeave={hideVolumeRange} onMouseEnter={showVolumeRange} onChange={volumeHandler} value={volume} className='h-1 w-16' type="range" name="volume" min="0" max="100" />}
+          {volumeRange && <input onMouseLeave={hideVolumeRange} onMouseEnter={showVolumeRange} onChange={volumeHandler} value={volume} className='h-1 w-16 accent-primary' type="range" name="volume" min="0" max="100" />}
         </div>
         <div className="flex justify-end w-full">
           <button onClick={speedx} className='p-1'><SpeedIcon /></button>

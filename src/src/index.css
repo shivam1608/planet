@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
+
+.theme-red {
+    --color-primary: #d32f2f;
+}
+
+.theme-blue {
+    --color-primary: #1976d2;
+}
+
+.theme-green {
+    --color-primary: #388e3c;
+}
+
 @tailwind utilities;
