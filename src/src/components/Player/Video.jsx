@@ -148,6 +148,9 @@ const Video = ({ src , className }) => {
                 break;
             }
             case KEY.SPACE_BAR: {
+                if(e.target == canvas.current) {
+                    e.preventDefault();
+                }
                 playHandler();
                 showBar();
                 break;
@@ -182,7 +185,7 @@ const Video = ({ src , className }) => {
     return (
         <>
             <div className={`aspect-auto ${className}`} >
-                <div onKeyDownCapture={keyboard} className="relative focus-visible:outline-none" ref={canvas} tabIndex="0">
+                <div onMouseEnter={()=>{canvas.current.focus();}} onKeyDownCapture={keyboard} className="relative focus-visible:outline-none" ref={canvas} tabIndex="-1">
                     {false && <div className='cursor-none'></div>}
                     {showSettings && <Settings />}
                     {showSpeed && <SpeedController speed={speed} changeSpeed={changeSpeed} />}

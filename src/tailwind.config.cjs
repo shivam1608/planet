@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'ubuntu': ['Ubuntu', 'sans-serif']
+      },
       textColor : {
         "primary" : "var(--color-primary)"
       },
