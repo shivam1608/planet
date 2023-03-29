@@ -21,8 +21,8 @@ const Navbar = ({setTheme}) => {
   
 
   return (
-    <div className='font-ubuntu p-3 flex'>
-      <span className='flex text-xl md:text-5xl lg:text-6xl text-white'><span className='hover:scale-110 transition-all duration-150 hover:animate-spin' ref={earth}>🌍</span> PLANET</span>
+    <div className='font-ubuntu font-semibold p-4 flex bg-gray-900'>
+      <span className='absolute flex text-xl md:text-4xl lg:text-5xl text-white'><span className='hover:scale-110 transition-all duration-150 hover:animate-spin' ref={earth}>🌍</span> PLANET</span>
       <div className="flex w-full justify-end items-center">
         <ThemeButton themeChange={handleThemeChange} className="bg-red-600" dataTheme="red" />
         <ThemeButton themeChange={handleThemeChange} className="bg-green-600" dataTheme="green" />

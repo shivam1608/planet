@@ -38,14 +38,14 @@ const Item = ({ over , setOver , queue , setQueue ,queueid , value}) => {
     onDragOver={onDragOver} 
     onDragEnd={onDragEnd} 
     draggable 
-    className={`m-0.5 mb-2 px-1.5 rounded-md bg-primary py-1.5 bg-gray-600 text-sm ${active?"opacity-50":""}`}
+    className={`m-0.5 mb-2 px-1 rounded-md bg-primary py-1 bg-gray-600 text-sm ${active?"opacity-50":""}`}
     >
         <div data-queue={queueid} className="flex relative">
-            <img draggable="false" src={value.thumbnail} alt="thumb" className='aspect-video h-20' />
+            <img draggable="false" src={value.thumbnail} alt="thumb" className='aspect-video h-16' />
             <div className="flex mx-2 justify-center h-fit">
-                <span title={value.title} data-queue={queueid} className='text-white font-semibold'>{compressTitle(value.title)}</span>
+                <span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold w-full'>{compressTitle(value.title)}</span>
             </div>
-            <div data-queue={queueid} className="absolute right-0 bottom-0 text-xs">{value.duration}</div>
+            <div data-queue={queueid} className="absolute right-0 bottom-0 text-xs font-semibold">{value.duration}</div>
         </div>
     </div>
   )

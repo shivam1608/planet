@@ -17,6 +17,9 @@ module.exports = {
       },
       accentColor : {
         "primary" : "var(--color-primary)"
+      },
+      fill : {
+        "primary" : "var(--color-primary)"
       }
     },
   },
