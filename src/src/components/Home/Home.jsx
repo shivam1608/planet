@@ -10,8 +10,20 @@ const Home = ({setTheme}) => {
   const [src , setSrc] = useState("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4");
   const [sidebar , setSidebar] = useState(true);
 
+  
+  const [queue , setQueue] = useState([]);
+
   const toggleSidebar = (e) => {
     setSidebar(!sidebar);
+  }
+
+  const goNext = (e) => {
+    if(queue.length!=0){
+      setSrc(queue[0].src);
+      let newQueue = [...queue];
+      newQueue.splice(0 , 1);
+      setQueue(newQueue);
+    }
   }
 
 
@@ -22,8 +34,8 @@ const Home = ({setTheme}) => {
         <div className="container h-full transition-all duration-150">
           <div className="flex w-full justify-center h-full  items-center">
             <div className={` my-4 ml-4 flex justify-start h-fit ${sidebar?"w-5/6 " : "w-10/12"}`}>
-                <div className="flex flex-col">
-                  <Video className="" src={src}></Video>
+                <div className="flex flex-col w-full h-auto">
+                  <Video goNext={goNext} className="" src={src}></Video>
                   <span className='m-2 text-xl text-primary font-ubuntu font-semibold'>Now Playing</span>
                 </div>
                 <div className="flex items-center">
@@ -37,7 +49,7 @@ const Home = ({setTheme}) => {
                 <div className="flex items-center justify-end font-ubuntu py-5 pr-2 w-full h-full max-h-full">
                 <div className="jutify-center bg-gray-800 rounded-md flex flex-col ml-2 w-full h-full scrollbar-hide overflow-y-scroll">
                   <span className='text-white text-4xl font-semibold mx-3 mt-3 mb-2'>⏰ Queue</span>
-                  <Queue className="mx-5 my-2 font-ubuntu" initialQueue={generate(0)} />
+                  <Queue queue={queue} setQueue={setQueue} className="mx-5 my-2 font-ubuntu" />
                 </div>
               </div>
             </div>

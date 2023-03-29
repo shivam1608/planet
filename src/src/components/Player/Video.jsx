@@ -5,7 +5,7 @@ import SpeedController from './SpeedController';
 import VideoController from './VideoController';
 import KEY from '../../utils/KeyCodes';
 
-const Video = ({ src , className }) => {
+const Video = ({ src , className , goNext }) => {
 
     const [visible, setVisible] = useState(true);
     const [volume, setVolume] = useState(60);
@@ -184,7 +184,7 @@ const Video = ({ src , className }) => {
 
     return (
         <>
-            <div className={`aspect-auto ${className}`} >
+            <div className={`aspect-video ${className}`} >
                 <div onMouseEnter={()=>{canvas.current.focus();}} onKeyDownCapture={keyboard} className="relative focus-visible:outline-none" ref={canvas} tabIndex="-1">
                     {false && <div className='cursor-none'></div>}
                     {showSettings && <Settings />}
@@ -209,6 +209,7 @@ const Video = ({ src , className }) => {
                             volumeHandler={volumeHandler}
                             volumeRange={volumeRange}
                             showVolumeRange={showVolumeRange}
+                            goNext={goNext}
                         />
                     }
                     <video
@@ -222,7 +223,7 @@ const Video = ({ src , className }) => {
                         onClickCapture={playHandler}
                         onContextMenu={(e) => e.preventDefault()}
                         ref={video}
-                        className={`${visible ? "cursor-default z-0" : "cursor-none"} h-full w-full`}
+                        className={`${visible ? "cursor-default z-0" : "cursor-none"} aspect-video w-full `}
                         onMouseMove={showBar}
                         src={src}>
                     </video>

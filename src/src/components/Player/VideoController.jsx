@@ -31,7 +31,8 @@ const VideoController = ({
   fullscreen,
   isFullscreen,
   muteHandler,
-  isMuted
+  isMuted,
+  goNext
 }) => {
   return (
     <div className='z-10 absolute bottom-0 w-full h-fit bg-opacity-30 bg-gradient-to-t from-gray-800 to-transparent'>
@@ -41,7 +42,7 @@ const VideoController = ({
       <div className='flex fill-white items-center'>
         <div className="basis-8/12 items-center flex">
           <button onClick={playHandler} className='p-1 '>{isPlaying ? <PauseIcon /> : <PlayIcon />}</button>
-          <button className='p-1'><NextIcon /></button>
+          <button onClick={goNext} className='p-1'><NextIcon /></button>
           <span className='p-1 text-white text-xs'>{new Time(currentTime, duration).getTime()}</span>
           <button onMouseLeave={hideVolumeRange} onMouseEnter={showVolumeRange} onClick={muteHandler} className='p-1'>{isMuted ? <MutedIcon /> : (volume > 40 ? <SoundIcon /> : <Sound2Icon />)}</button>
           {volumeRange && <input onMouseLeave={hideVolumeRange} onMouseEnter={showVolumeRange} onChange={volumeHandler} value={volume} className='h-1 w-16 accent-primary' type="range" name="volume" min="0" max="100" />}

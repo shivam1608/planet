@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rajesh896/video-thumbnails-generator": "^2.3.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-scrollbar-hide": "^1.1.7"
