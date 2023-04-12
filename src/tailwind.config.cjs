@@ -21,6 +21,9 @@ module.exports = {
       backgroundColor : {
         "primary" : "var(--color-primary)",
       },
+      borderColor : {
+        "primary" : "var(--color-primary)",
+      },
       accentColor : {
         "primary" : "var(--color-primary)"
       },

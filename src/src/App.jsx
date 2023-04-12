@@ -27,7 +27,7 @@ function App() {
   
 
   return (
-    <div className={`App bg-gray-900 h-screen ${theme}`}>
+    <div className={`App bg-gray-900 h-screen ${theme} relative`}>
       <Home setTheme={setTheme}/>
     </div>
   )
