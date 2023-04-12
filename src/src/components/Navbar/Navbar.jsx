@@ -31,7 +31,7 @@ const Navbar = ({setTheme}) => {
           <span>PLANET</span>
           <span className='justify-end flex text-sm text-primary text-end space-y-0 items-center'>
             BY SHIVZEE
-            <GitBtn />
+            <GitBtn className="w-6 h-6 px-0.5 ml-1.5"/>
           </span>
         </div>
       </span>
