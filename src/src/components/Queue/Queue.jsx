@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useRef } from 'react';
+import React, { useState , useRef } from 'react';
 import {generateVideoThumbnails} from "@rajesh896/video-thumbnails-generator";
 import Time from '../../utils/Time';
 import Item from './Item';

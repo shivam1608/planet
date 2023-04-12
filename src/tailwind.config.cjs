@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors : {
+        'gray': {
+          800: '#212121',
+          900: '#121212',
+        },
+      },
       fontFamily: {
         'ubuntu': ['Ubuntu', 'sans-serif']
       },
