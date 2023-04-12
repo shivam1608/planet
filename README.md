@@ -3,9 +3,6 @@ Deemed to be a web based player with all modern features so no need to download 
 
 Live on: https://planet.vercel.com
 
-## Screenshot
-
-
 ## Check List
 - ✅ Modern UI
 - ✅ Working Player
@@ -21,6 +18,10 @@ Live on: https://planet.vercel.com
 - ⭕ Play from `YouTube`
 - ⭕ Custom Themes
 - ⭕ Fixing Bugs/Glitches 
+
+
+## Screenshot
+![screenshot](/Screenshot.png)
 
 ### How to Build?
 built with `npm` so to make a custom build use
