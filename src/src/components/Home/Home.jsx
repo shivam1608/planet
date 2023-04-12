@@ -9,7 +9,7 @@ const Home = ({setTheme}) => {
   const [src , setSrc] = useState("");
   const [title , setTitle] = useState("Now Playing");
   const [sidebar , setSidebar] = useState(true);
-
+  
   
   const [queue , setQueue] = useState([]);
 

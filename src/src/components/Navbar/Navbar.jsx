@@ -8,7 +8,9 @@ const Navbar = ({setTheme}) => {
   const updateInterval = useRef(undefined);
 
   const handleThemeChange = (e) => {
-    setTheme(`theme-${e.target.getAttribute("data-theme")}`);
+    let theme = `theme-${e.target.getAttribute("data-theme")}`;
+    setTheme(theme);
+    localStorage.setItem("data-theme" , theme);
   }
 
   useEffect(() => {
