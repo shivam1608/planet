@@ -5,8 +5,9 @@ import SpeedController from './SpeedController';
 import VideoController from './VideoController';
 import KEY from '../../utils/KeyCodes';
 import FirstPlay from './FirstPlay';
+import { generateHash } from '../../utils/Utils';
 
-const Video = ({ src , className , goNext , queue}) => {
+const Video = ({ src , className , goNext , queue , title}) => {
 
     const [visible, setVisible] = useState(true);
     const [volume, setVolume] = useState(60);
@@ -20,6 +21,7 @@ const Video = ({ src , className , goNext , queue}) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [buffering, setBuffering] = useState(true);
+    const [hash , setHash] = useState(undefined);
     const video = useRef();
     const canvas = useRef();
     const closeTimeout = useRef(undefined);
@@ -46,6 +48,15 @@ const Video = ({ src , className , goNext , queue}) => {
             goNext();
         }
     }, [queue]);
+
+    useEffect(() => {
+       let item = localStorage.getItem(hash);
+       if(item){
+          setCurrentTime(item);
+          video.current.currentTime = item;
+       }
+    }, [hash]);
+    
 
 
     const hideBar = () => {
@@ -132,6 +143,9 @@ const Video = ({ src , className , goNext , queue}) => {
 
     const updateTime = () => {
         setCurrentTime(video.current.currentTime);
+        if(hash){
+            localStorage.setItem(hash , currentTime);
+        }
     }
 
     const onBuffer = (e) => {
@@ -149,6 +163,18 @@ const Video = ({ src , className , goNext , queue}) => {
 
     const onLoaded = (e) => {
         setDuration(video.current.duration);
+        generateHash(`${title}__++__${duration}`).then((h)=>{
+            setHash(h);
+            let del = localStorage.getItem("del");
+            if(!del){
+                del = '[]';
+            }
+            del = JSON.parse(del);
+            if(del.filter((v)=>v.hash==h).length==0){
+                del.push({'hash' : h , "delstamp" : new Date().getTime() + (48*1000*60*60)});
+                localStorage.setItem("del" , JSON.stringify(del));
+            }
+        });
         setBuffering(false);
         playHandler();
     }

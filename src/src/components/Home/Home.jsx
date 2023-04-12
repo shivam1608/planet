@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { ArrowLeftIcon, ArrowRightIcon } from '../../icons';
 import Navbar from '../Navbar/Navbar';
 import Video from '../Player/Video';
@@ -9,13 +9,16 @@ const Home = ({setTheme}) => {
   const [src , setSrc] = useState("");
   const [title , setTitle] = useState("Now Playing");
   const [sidebar , setSidebar] = useState(true);
-  
+
   
   const [queue , setQueue] = useState([]);
+  
 
   const toggleSidebar = (e) => {
     setSidebar(!sidebar);
   }
+
+  
 
   const goNext = (e) => {
     if(queue.length!=0){
@@ -37,7 +40,7 @@ const Home = ({setTheme}) => {
           <div className="flex w-full justify-center h-full  items-center">
             <div className={` my-4 ml-4 flex justify-start h-fit ${sidebar?"w-5/6 " : "w-10/12"}`}>
                 <div className="flex flex-col w-full h-auto">
-                  <Video goNext={goNext} queue={queue} className="" src={src}></Video>
+                  <Video goNext={goNext} queue={queue} className="" src={src} title={title}></Video>
                   <span className='m-2 text-xl text-primary font-ubuntu font-semibold'>{title}</span>
                 </div>
                 <div className="flex items-center">

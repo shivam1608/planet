@@ -4,7 +4,6 @@ import { Home } from "./components";
 function App() {
 
   const [theme , setTheme] = useState("theme-blue");
-  const [data , setData] = useState({});
 
 
   useEffect(() => {
@@ -13,12 +12,22 @@ function App() {
       theme = "theme-blue";
     }
     setTheme(theme);
+
+    let dels = localStorage.getItem("del");
+
+    if(!dels){
+        dels ='[]';
+    }
+
+    dels = JSON.parse(dels);
+    dels = dels.filter(v=>v.delstamp>new Date().getTime());
+    localStorage.setItem("del" , JSON.stringify(dels));
   }, []);
   
 
   return (
     <div className={`App bg-gray-900 h-screen ${theme}`}>
-      <Home setTheme={setTheme} />
+      <Home setTheme={setTheme}/>
     </div>
   )
 }
