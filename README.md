@@ -12,6 +12,8 @@ Live on: https://planet.vercel.com
 - ✅ Themes
 - ✅ Queue System
 - ✅ Resume where you left
+- ⭕ Offline Mode (work without internet)
+- ⭕ PWA app 
 - ⭕ Play from `URL` Source
 - ⭕ Support for Subtitles
 - ⭕ Support for `mkv` files
@@ -36,8 +38,8 @@ npm run dev
 ```
 
 ## Credits
-- author : [shivzee]("https://github.com/shivam1608")
-- IDE used : [Visual Studio Code]("https://code.visualstudio.com/")
-- [Gitpod]("https://gitpod.io")
-- [svgrepo]("https://www.svgrepo.com/")
+- author : [shivzee](https://github.com/shivam1608)
+- IDE used : [Visual Studio Code](https://code.visualstudio.com/)
+- [Gitpod](https://gitpod.io)
+- [svgrepo](https://www.svgrepo.com/)
 - [tailwindcss](https://tailwindcss.com/)
