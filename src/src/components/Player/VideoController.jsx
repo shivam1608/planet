@@ -35,7 +35,7 @@ const VideoController = ({
   goNext
 }) => {
   return (
-    <div className='z-10 absolute bottom-0 w-full h-fit bg-opacity-30 bg-gradient-to-t from-gray-800 to-transparent'>
+    <div className='z-10 absolute bottom-0 w-full h-fit bg-opacity-30 bg-gradient-to-t from-gray-900 to-transparent'>
       <div className="h-fit">
         <input onInputCapture={seek} onChange={seek} value={currentTime} className='h-[4px] w-full p-0 rounded-none focus-visible:outline-none accent-primary' type="range" name="position" id="position" min="0" max={duration} />
       </div>

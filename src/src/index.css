@@ -14,4 +14,8 @@
     --color-primary: #388e3c;
 }
 
+.theme-purple {
+    --color-primary: #8e24aa;
+}
+
 @tailwind utilities;

@@ -4,8 +4,9 @@ import Settings from './Settings';
 import SpeedController from './SpeedController';
 import VideoController from './VideoController';
 import KEY from '../../utils/KeyCodes';
+import FirstPlay from './FirstPlay';
 
-const Video = ({ src , className , goNext }) => {
+const Video = ({ src , className , goNext , queue}) => {
 
     const [visible, setVisible] = useState(true);
     const [volume, setVolume] = useState(60);
@@ -40,6 +41,12 @@ const Video = ({ src , className , goNext }) => {
         video.current.playbackRate = speed;
     }, [speed]);
 
+    useEffect(() => {
+        if(queue.length === 1 && video.current.src === window.location.href){
+            goNext();
+        }
+    }, [queue]);
+
 
     const hideBar = () => {
         setVisible(false);
@@ -57,7 +64,7 @@ const Video = ({ src , className , goNext }) => {
             clearTimeout(closeTimeout.current);
         }
         setVisible(true);
-        closeTimeout.current = setTimeout(() => { hideBar() }, 3000);
+        closeTimeout.current = setTimeout(() => { hideBar() }, 3500);
     }
 
     const volumeHandler = (e) => {
@@ -136,9 +143,14 @@ const Video = ({ src , className , goNext }) => {
         setIsPlaying(true);
     }
 
+    const onEnded = (e) => {
+        goNext(e);
+    }
+
     const onLoaded = (e) => {
         setDuration(video.current.duration);
         setBuffering(false);
+        playHandler();
     }
 
     const keyboard = (e) => {
@@ -190,6 +202,7 @@ const Video = ({ src , className , goNext }) => {
                     {showSettings && <Settings />}
                     {showSpeed && <SpeedController speed={speed} changeSpeed={changeSpeed} />}
                     {buffering && <Loader />}
+                    {(video.current && video.current.src == window.location.href) && <FirstPlay />}
                     {
                         visible && <VideoController
                             seek={seek}
@@ -216,7 +229,7 @@ const Video = ({ src , className , goNext }) => {
                         onWaiting={onBuffer}
                         onPause={() => setIsPlaying(false)}
                         onPlaying={onPlaying}
-                        onEnded={playHandler}
+                        onEnded={onEnded}
                         onLoadedData={onLoaded}
                         onTimeUpdate={updateTime}
                         onDoubleClickCapture={fullscreen}

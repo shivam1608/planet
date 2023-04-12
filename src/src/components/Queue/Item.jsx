@@ -1,9 +1,8 @@
 import React , {useState} from 'react'
-import { compressTitle } from '../../utils/Utils';
 import Marquee from "react-fast-marquee";
-import { DeleteIcon } from '../../icons';
+import { DeleteIcon, SubtitleIcon } from '../../icons';
 
-const Item = ({ over , setOver , queue , setQueue ,queueid , value}) => {
+const Item = ({ over , setOver , queue , setQueue ,queueid , value , removeFromQueue}) => {
 
     const [active , setActive] = useState(false);
 
@@ -47,12 +46,13 @@ const Item = ({ over , setOver , queue , setQueue ,queueid , value}) => {
             <div className="flex flex-col mx-2 h-full truncate">
                 {
                     value.title.length>40 ?
-                    <Marquee gradient={false} className='overflow-hidden'><span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span></Marquee>
+                    <Marquee data-queue={queueid} gradient={false} className='overflow-hidden'><span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span></Marquee>
                     :
                     <span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span>
                 }
-                <div className="flex items-end mb-1 w-full h-full">
-                    <button><DeleteIcon /></button>
+                <div data-queue={queueid} className="flex items-end mb-1 w-full h-full">
+                    <button data-queue={queueid} onClick={removeFromQueue} title='Remove from Queue' className='ml-2 p-0.5'><DeleteIcon /></button>
+                    <button ata-queue={queueid} disabled title='Coming soon' className='ml-2'><SubtitleIcon /></button>
                 </div>
             </div>
             <div data-queue={queueid} className="absolute right-0 bottom-0 text-xs font-semibold">{value.duration}</div>
