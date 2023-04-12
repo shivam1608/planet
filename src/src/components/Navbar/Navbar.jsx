@@ -1,5 +1,6 @@
 import React, {useRef, useEffect } from 'react'
 import ThemeButton from './ThemeButton';
+import GitBtn from './GitBtn';
 
 const Navbar = ({setTheme}) => {
 
@@ -28,7 +29,10 @@ const Navbar = ({setTheme}) => {
         <span className='hover:scale-110 transition-all duration-150 hover:animate-spin' ref={earth}>🌍</span> 
         <div className="flex flex-col">
           <span>PLANET</span>
-          <span className='text-sm text-primary text-end space-y-0'>BY SHIVZEE</span>
+          <span className='justify-end flex text-sm text-primary text-end space-y-0 items-center'>
+            BY SHIVZEE
+            <GitBtn />
+          </span>
         </div>
       </span>
       <div className="flex w-full justify-end items-center">
