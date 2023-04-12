@@ -40,9 +40,8 @@ function App() {
         <div className="flex flex-col justify-center items-center">
             <span className="p-4 text-center text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 font-bold">Coming soon on mobile devices.</span>
             <GitBtn className="mt-5 w-10 h-10 px-0.5 mx-1.5" />
-          </div>
+        </div>
       </div>
-        
       </MobileView>
     </div>
   )
