@@ -52,7 +52,7 @@ const Item = ({ over , setOver , queue , setQueue ,queueid , value , removeFromQ
                 }
                 <div data-queue={queueid} className="flex items-end mb-1 w-full h-full">
                     <button data-queue={queueid} onClick={removeFromQueue} title='Remove from Queue' className='ml-2 p-0.5'><DeleteIcon /></button>
-                    <button ata-queue={queueid} disabled title='Coming soon' className='ml-2'><SubtitleIcon /></button>
+                    <button ata-queue={queueid} disabled title='Coming soon' className='ml-2 p-0.5'><SubtitleIcon /></button>
                 </div>
             </div>
             <div data-queue={queueid} className="absolute right-0 bottom-0 text-xs font-semibold">{value.duration}</div>
