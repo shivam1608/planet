@@ -158,6 +158,7 @@ const Video = ({ src , className , goNext , queue , title}) => {
     }
 
     const onEnded = (e) => {
+        localStorage.removeItem(hash);
         goNext(e);
     }
 

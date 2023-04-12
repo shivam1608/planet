@@ -12,15 +12,16 @@ function App() {
       theme = "theme-blue";
     }
     setTheme(theme);
-
-    let dels = localStorage.getItem("del");
-
-    if(!dels){
-        dels ='[]';
-    }
-
+    const currentStamp = new Date().getTime();
+    let dels = localStorage.getItem("del")||'[]';
     dels = JSON.parse(dels);
-    dels = dels.filter(v=>v.delstamp>new Date().getTime());
+    let rms = dels.filter(v=>v.delstamp<currentStamp);
+    rms.forEach(v => {
+      if(localStorage.getItem(v.hash)){
+        localStorage.removeItem(v.hash);
+      }
+    });
+    dels = dels.filter(v=>v.delstamp>currentStamp);
     localStorage.setItem("del" , JSON.stringify(dels));
   }, []);
   
