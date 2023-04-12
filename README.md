@@ -1,7 +1,7 @@
 # 🌍 Planet Player
 Deemed to be a web based player with all modern features so no need to download local players.
 
-Live on: https://planet.vercel.com
+Live on: https://playplanet.vercel.app
 
 ## Check List
 - ✅ Modern UI
