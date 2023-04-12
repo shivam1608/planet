@@ -14,3 +14,4 @@ export {default as DeExpandIcon} from "./DeExpand";
 export {default as InfoIcon} from "./Info";
 export {default as ArrowRightIcon} from "./ArrowRight";
 export {default as ArrowLeftIcon} from "./ArrowLeft";
+export {default as DeleteIcon} from "./Delete";

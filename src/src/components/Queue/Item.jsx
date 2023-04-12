@@ -1,5 +1,7 @@
 import React , {useState} from 'react'
 import { compressTitle } from '../../utils/Utils';
+import Marquee from "react-fast-marquee";
+import { DeleteIcon } from '../../icons';
 
 const Item = ({ over , setOver , queue , setQueue ,queueid , value}) => {
 
@@ -40,10 +42,18 @@ const Item = ({ over , setOver , queue , setQueue ,queueid , value}) => {
     draggable 
     className={`m-0.5 mb-2 px-1 rounded-md bg-primary py-1 bg-gray-600 text-sm ${active?"opacity-50":""}`}
     >
-        <div data-queue={queueid} className="flex relative">
+        <div data-queue={queueid} className="flex relative h-full">
             <img draggable="false" src={value.thumbnail} alt="thumb" className='aspect-video h-16' />
-            <div className="flex mx-2 justify-center h-fit">
-                <span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold w-full'>{compressTitle(value.title)}</span>
+            <div className="flex flex-col mx-2 h-full truncate">
+                {
+                    value.title.length>40 ?
+                    <Marquee gradient={false} className='overflow-hidden'><span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span></Marquee>
+                    :
+                    <span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span>
+                }
+                <div className="flex items-end mb-1 w-full h-full">
+                    <button><DeleteIcon /></button>
+                </div>
             </div>
             <div data-queue={queueid} className="absolute right-0 bottom-0 text-xs font-semibold">{value.duration}</div>
         </div>

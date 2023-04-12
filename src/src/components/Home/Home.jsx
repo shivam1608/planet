@@ -45,7 +45,7 @@ const Home = ({setTheme}) => {
                 </div>
             </div>
 
-            <div className={`transition-all duration-150 flex justify-center items-center h-full ${sidebar?"scale-100 w-1/3":"scale-0 w-0"}`}>
+            <div className={`transition-all duration-150 flex justify-center items-center h-full ${sidebar?"scale-100 w-1/3 max-w-sm":"scale-0 w-0"}`}>
                 <div className="flex items-center justify-end font-ubuntu py-5 pr-2 w-full h-full max-h-full">
                 <div className="jutify-center bg-gray-800 rounded-md flex flex-col ml-2 w-full h-full scrollbar-hide overflow-y-scroll">
                   <span className='text-white text-4xl font-semibold mx-3 mt-3 mb-2'>⏰ Queue</span>
