@@ -252,21 +252,23 @@ const Video = ({ src , className , goNext , queue , title}) => {
                             goNext={goNext}
                         />
                     }
-                    <video
-                        onWaiting={onBuffer}
-                        onPause={() => setIsPlaying(false)}
-                        onPlaying={onPlaying}
-                        onEnded={onEnded}
-                        onLoadedData={onLoaded}
-                        onTimeUpdate={updateTime}
-                        onDoubleClickCapture={fullscreen}
-                        onClickCapture={playHandler}
-                        onContextMenu={(e) => e.preventDefault()}
-                        ref={video}
-                        className={`${visible ? "cursor-default z-0" : "cursor-none"} aspect-video w-full `}
-                        onMouseMove={showBar}
-                        src={src}>
-                    </video>
+                    <div className="flex justify-center items-center h-full w-full">
+                        <video
+                            onWaiting={onBuffer}
+                            onPause={() => setIsPlaying(false)}
+                            onPlaying={onPlaying}
+                            onEnded={onEnded}
+                            onLoadedData={onLoaded}
+                            onTimeUpdate={updateTime}
+                            onDoubleClickCapture={fullscreen}
+                            onClickCapture={playHandler}
+                            onContextMenu={(e) => e.preventDefault()}
+                            ref={video}
+                            className={`${visible ? "cursor-default z-0" : "cursor-none"} aspect-video w-full`}
+                            onMouseMove={showBar}
+                            src={src}>
+                        </video>
+                    </div>
                 </div>
             </div>
         </>
