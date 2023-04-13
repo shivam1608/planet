@@ -45,7 +45,7 @@ const Item = ({ over , setOver , queue , setQueue ,queueid , value , removeFromQ
             <img draggable="false" src={value.thumbnail} alt="thumb" className='aspect-video h-16' />
             <div className="flex flex-col mx-2 h-full truncate">
                 {
-                    value.title.length>40 ?
+                    value.title.length>35 ?
                     <Marquee data-queue={queueid} gradient={false} className='overflow-hidden'><span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span></Marquee>
                     :
                     <span title={value.title} data-queue={queueid} className='text-white text-xs font-semibold'>{value.title}</span>
