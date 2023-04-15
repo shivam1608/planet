@@ -39,6 +39,9 @@ function App() {
       <div className="flex justify-center items-center h-full w-full">
         <div className="flex flex-col justify-center items-center">
             <span className="p-4 text-center text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 font-bold">Coming soon on mobile devices.</span>
+            <div className="m-2 px-2 py-4 mx-4 text-xs text-center border-2 border-purple-400 text-gray-300">
+              <span className="">Still want to use it? No problem just put this webpage in <code className="text-blue-300">Desktop Mode</code> and rotate your phone <code className="text-blue-300">90°</code> horizontal.</span>
+            </div>
             <GitBtn className="mt-5 w-10 h-10 px-0.5 mx-1.5" />
         </div>
       </div>
